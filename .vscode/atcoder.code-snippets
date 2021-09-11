@@ -1,0 +1,20 @@
+{
+	"main for AtCoder": {
+		"scope": "cpp",
+		"prefix": "main for AtCoder",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"int main()",
+			"{",
+			"  int64_t a;",
+			"  cin >> a;",
+			"  int64_t ret = 0;",
+			"  $1",
+			"  cout << ret << endl;",
+			"  return 0;",
+			"}"
+		],
+		"description": "main function for atcoder"
+	}
+}
