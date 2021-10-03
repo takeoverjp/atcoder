@@ -29,7 +29,12 @@
     {
       "label": "Run test",
       "type": "shell",
-      "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "command": "oj",
+      "args": [
+        "t",
+        "-c",
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
       "group": {
         "kind": "test",
         "isDefault": true
