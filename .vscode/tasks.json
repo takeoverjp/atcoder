@@ -6,6 +6,9 @@
       "command": "/usr/bin/g++-9",
       "args": [
         "-std=c++17",
+        "-Wall",
+        "-W",
+        "-Werror",
         "-g",
         "${file}",
         "-o",
