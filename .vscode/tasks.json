@@ -1,47 +1,16 @@
 {
   "tasks": [
     {
-      "type": "cppbuild",
-      "label": "C/C++: g++-9 アクティブなファイルのビルド",
-      "command": "/usr/bin/g++-9",
-      "args": [
-        "-std=c++17",
-        "-Wall",
-        "-W",
-        "-Werror",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.out"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "デバッガーによって生成されたタスク。"
-    },
-    {
       "label": "Run test",
       "type": "shell",
-      "command": "oj",
+      "command": "${workspaceFolder}/test.sh",
       "args": [
-        "t",
-        "-c",
-        "${fileDirname}/${fileBasenameNoExtension}.out"
+        "${fileBasenameNoExtension}"
       ],
       "group": {
         "kind": "test",
         "isDefault": true
-      },
-      "dependsOn": [
-        "C/C++: g++-9 アクティブなファイルのビルド"
-      ]
+      }
     }
   ],
   "version": "2.0.0"
