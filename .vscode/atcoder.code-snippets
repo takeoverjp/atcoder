@@ -5,12 +5,12 @@
 		"body": [
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
-			"int main()",
-			"{",
-			"  int64_t a;",
-			"  cin >> a;",
+			"int main() {",
+			"  int64_t n;",
+			"  cin >> n;",
+			"  vector<int64_t> a(n);",
+			"  for (auto &x : a) cin >> x;",
 			"  int64_t ret = 0;",
-			"  $1",
 			"  cout << ret << endl;",
 			"  return 0;",
 			"}"
