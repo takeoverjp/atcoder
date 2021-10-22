@@ -1,6 +1,18 @@
 {
   "tasks": [
     {
+      "label": "Run buid",
+      "type": "shell",
+      "command": "${workspaceFolder}/test.sh",
+      "args": [
+        "${fileBasenameNoExtension}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
       "label": "Run test",
       "type": "shell",
       "command": "${workspaceFolder}/test.sh",
