@@ -1,18 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
+static int N, M;
+static vector<vector<int>> G;
+static vector<int> dp;
+
+static int recurse(int node) {
+  if (dp[node] != -1) {
+    return dp[node];
+  }
+
+  int ret = 0;
+  for (int dst : G[node]) {
+    ret = max(ret, recurse(dst) + 1);
+  }
+  return dp[node] = ret;
+}
+
 int main() {
-  int64_t N, M;
   cin >> N >> M;
-  vector<int64_t> x(M), y(M);
-  for (int64_t i = 0; i < M; i++) {
-    cin >> x[i] >> y[i];
+  G.assign(N, vector<int>());
+  dp.assign(N, -1);
+  for (int i = 0; i < M; i++) {
+    int x, y;
+    cin >> x >> y;
+
+    // 1-indexed -> 0-indexed
+    --x;
+    --y;
+
+    G[x].push_back(y);
   }
-  vector<int> dp(N, 0);
-  for (int64_t i = 1; i <= M; i++) {
-    // cout << "i = " << i << ", x[i - 1] - 1 = " << x[i - 1] - 1 << endl;
-    // cout << "i = " << i << ", y[i - 1] - 1 = " << y[i - 1] - 1 << endl;
-    dp[y[i - 1] - 1] = max(dp[y[i - 1] - 1], dp[x[i - 1] - 1] + 1);
+
+  int ret = 0;
+  for (int node = 0; node < N; node++) {
+    ret = max(ret, recurse(node));
   }
-  cout << *max_element(dp.begin(), dp.end()) << endl;
+  cout << ret << endl;
   return 0;
 }
