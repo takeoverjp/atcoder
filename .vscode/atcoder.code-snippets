@@ -12,8 +12,8 @@
 			"  for (int64_t i = 0; i < N; i++) {",
 			"    cin >> a[i] >> b[i];",
 			"  }",
-			"  int64_t ret = 0;",
-			"  cout << ret << endl;",
+			"  int64_t ans = 0;",
+			"  cout << ans << endl;",
 			"  return 0;",
 			"}"
 		],
