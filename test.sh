@@ -21,7 +21,7 @@ set -ex
 
 problem_name=$1
 test_dir=test/${problem_name}
-contest_name=${problem_name%_*}
+contest_name=$(echo ${problem_name%_*} | tr "_" "-")
 
 if [ ! -d ${test_dir} ]; then
   oj dl -d test/${problem_name} https://atcoder.jp/contests/${contest_name}/tasks/${problem_name//-/_}
