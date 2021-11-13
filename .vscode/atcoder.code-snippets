@@ -18,5 +18,34 @@
 			"}"
 		],
 		"description": "atcoder"
-	}
+	},
+	"container": {
+		"scope": "cpp",
+		"prefix": "container",
+		"body": [
+			"template <typename T>",
+			"ostream& operator<<(ostream& os, const vector<T>& v) {",
+			"  os << \"[\";",
+			"  for (size_t i = 0; i < v.size(); ++i) {",
+			"    os << v[i];",
+			"    if (i != v.size() - 1) {",
+			"      os << \", \";",
+			"    }",
+			"  }",
+			"  os << \"]\\n\";",
+			"  return os;",
+			"}",
+			"template <typename T>",
+			"ostream& operator<<(ostream& os, const unordered_set<T>& v) {",
+			"  os << \"[\";",
+			"  for (auto& i : v) {",
+			"    os << i << \", \";",
+			"  }",
+			"  os << \"]\\n\";",
+			"  return os;",
+			"}",
+			"",
+		],
+		"description": ""
+	},
 }
