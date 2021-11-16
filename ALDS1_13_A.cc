@@ -29,7 +29,7 @@ int main() {
 
   vector<pair<int, int>> ans;
   for (int i = 0; i < 8; i++) {
-    ans.push_back(make_pair(r[i], c[i]));
+    ans.push_back(make_pair(c[i], r[i]));
   }
   sort(ans.begin(), ans.end(), [](const auto& lhs, const auto& rhs) {
     return lhs.second < rhs.second;
@@ -39,7 +39,7 @@ int main() {
       cout << ".";
     }
     cout << "Q";
-    for (int j = ans[i].first; j < 8; j++) {
+    for (int j = ans[i].first + 1; j < 8; j++) {
       cout << ".";
     }
     cout << endl;
