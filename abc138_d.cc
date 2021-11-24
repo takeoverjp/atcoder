@@ -5,15 +5,12 @@ typedef long long ll;
 
 static vector<vector<ll>> to;
 static vector<ll> score;
-static vector<bool> done;
 
-static void dfs(ll idx) {
-  if (done[idx]) return;
-  done[idx] = true;
-  for (auto child : to[idx]) {
-    if (done[child]) continue;
-    score[child] += score[idx];
-    dfs(child);
+static void dfs(ll idx, ll parent = -1) {
+  for (auto next : to[idx]) {
+    if (next == parent) continue;
+    score[next] += score[idx];
+    dfs(next, idx);
   }
 }
 int main() {
@@ -21,7 +18,6 @@ int main() {
   cin >> N >> Q;
   to.resize(N);
   score.assign(N, 0);
-  done.assign(N, false);
   rep(i, N - 1) {
     ll a, b;
     cin >> a >> b;
