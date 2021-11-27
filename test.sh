@@ -30,6 +30,7 @@ fi
 if [ ! -f ${problem_name}.out ] ||
   [ ${problem_name}.cc -nt ${problem_name}.out ]; then
   g++-9 -std=c++17 -fsanitize=address,undefined \
+    -Iac-library/ \
     -Wall -W -Werror \
     -g \
     -o ${problem_name}.out \
@@ -37,3 +38,16 @@ if [ ! -f ${problem_name}.out ] ||
 fi
 
 oj test -c ./${problem_name}.out -d ${test_dir}
+
+if [ ! -f ${problem_name}.TEST.out ] ||
+  [ ${problem_name}.cc -nt ${problem_name}.TEST.out ]; then
+  g++-9 -std=c++17 -fconcepts -fsanitize=address,undefined \
+    -Iac-library/ \
+    -Ilassert/ \
+    -DTEST -Wall -W -Werror \
+    -g \
+    -o ${problem_name}.TEST.out \
+    ${problem_name}.cc
+fi
+
+./${problem_name}.TEST.out
